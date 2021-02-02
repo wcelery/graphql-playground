@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "testing graphql server",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wcelery/graphql-playground.git"
+  },
+  "keywords": [
+    "graphql",
+    "apollo",
+    "react"
+  ],
+  "author": "wcelery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wcelery/graphql-playground/issues"
+  },
+  "homepage": "https://github.com/wcelery/graphql-playground#readme",
+  "dependencies": {
+    "apollo-server": "^2.19.2",
+    "graphql": "^15.5.0"
+  }
+}
