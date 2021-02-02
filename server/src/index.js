@@ -1,7 +1,9 @@
 import pkg from "apollo-server";
+import "dotenv/config.js";
 import { typeDefs } from "./schema.js";
 
 const { ApolloServer } = pkg;
+const port = process.env.PORT || 4000;
 
 const mocks = {
   Card: () => ({
@@ -22,6 +24,6 @@ const mocks = {
 };
 
 const server = new ApolloServer({ typeDefs, mocks }); //same as {typeDefs: typeDefs}
-server.listen().then(() => {
-  console.log(`Server is running at port ...`);
+server.listen({ port }).then(() => {
+  console.log(`Server is running at port ${port}...`);
 });
