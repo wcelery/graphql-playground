@@ -1,14 +1,15 @@
 import pkg from "apollo-server";
-import "dotenv/config.js";
+import dotenv from "dotenv";
 import { typeDefs } from "./schema.js";
 
+dotenv.config({ path: "../.env" });
 const { ApolloServer } = pkg;
-const port = process.env.PORT || 4000;
+const port = process.env.REACT_APP_PORT || 4000;
 
 const mocks = {
   Card: () => ({
     id: () => "card_01",
-    title: () => "Im card title",
+    title: () => "Im card titl",
     user: () => {
       return {
         id: "user_01",

@@ -1,22 +1,35 @@
 import "./App.css";
-import Button from "@material-ui/core/Button";
+import { Button, Typography } from "@material-ui/core";
+import TopBar from "./components/TopBar";
+import { gql, useQuery } from "@apollo/client";
+
+export const TRACKS = gql`
+  query Query {
+    cardsToShow {
+      id
+      thumb
+      title
+      user {
+        id
+        pic
+        name
+      }
+      stars
+    }
+  }
+`;
 
 function App() {
+  const { loading, error, data } = useQuery(TRACKS);
+
+  if (loading) return "Loading...";
+
+  if (error) return `Error! ${error.message}`;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopBar />
+      <Typography>{JSON.stringify(data)}</Typography>
       <Button variant="contained" color="primary">
         Hello World
       </Button>
