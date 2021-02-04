@@ -1,8 +1,9 @@
 import "./App.css";
-import { Button } from "@material-ui/core";
+import { Button, Grid, makeStyles } from "@material-ui/core";
 import { gql, useQuery } from "@apollo/client";
 import TopBar from "./components/TopBar";
 import MyCard from "./components/MyCard";
+import CardsResult from "./components/CardsResult";
 
 export const CARDS = gql`
   query Query {
@@ -20,19 +21,30 @@ export const CARDS = gql`
   }
 `;
 
+const useStyles = makeStyles({
+  root: {
+    padding: 20,
+    maxWidth: "100vw",
+  },
+});
+
 function App() {
   const { loading, error, data } = useQuery(CARDS);
-
-  if (loading) return "Loading...";
-
-  if (error) return `Error! ${error.message}`;
+  const classes = useStyles();
 
   return (
-    <div className="App">
+    <div>
       <TopBar />
-      {data?.cardsToShow?.map((card) => (
-        <MyCard key={card.id} card={card} />
-      ))}
+      <CardsResult loading={loading} error={error} data={data}>
+        <Grid container spacing="3" className={classes.root}>
+          {data?.cardsToShow?.map((card) => (
+            <Grid key={card.id} item>
+              <MyCard card={card} />
+            </Grid>
+          ))}
+        </Grid>
+      </CardsResult>
+
       <Button variant="contained" color="primary">
         Hello World
       </Button>
