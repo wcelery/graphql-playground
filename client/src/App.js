@@ -1,4 +1,4 @@
-import "./App.css";
+import React from "react";
 import { Button, Grid, makeStyles } from "@material-ui/core";
 import { gql, useQuery } from "@apollo/client";
 import TopBar from "./components/TopBar";
@@ -36,7 +36,7 @@ function App() {
     <div>
       <TopBar />
       <CardsResult loading={loading} error={error} data={data}>
-        <Grid container spacing="3" className={classes.root}>
+        <Grid container spacing={3} className={classes.root}>
           {data?.cardsToShow?.map((card) => (
             <Grid key={card.id} item>
               <MyCard card={card} />

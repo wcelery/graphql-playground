@@ -7,7 +7,7 @@ export default function CardFooter({ user, stars }) {
 
   return (
     <Box>
-      <Grid container justify="flex-start" alignItems="center" spacing="2">
+      <Grid container justify="flex-start" alignItems="center" spacing={2}>
         <Grid item>
           <Avatar alt="Remy Sharp" src={pic} />
         </Grid>
