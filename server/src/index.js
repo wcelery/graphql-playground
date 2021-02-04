@@ -9,7 +9,7 @@ const port = process.env.REACT_APP_PORT || 4000;
 const mocks = {
   Card: () => ({
     id: () => "card_01",
-    title: () => "Im card titl",
+    title: () => "Im card title",
     user: () => {
       return {
         id: "user_01",
