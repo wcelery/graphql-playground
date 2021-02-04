@@ -2,7 +2,7 @@ import pkg from "apollo-server";
 import dotenv from "dotenv";
 import { typeDefs } from "./schema.js";
 
-dotenv.config({ path: "../.env" });
+dotenv.config({ path: "../client/.env" });
 const { ApolloServer } = pkg;
 const port = process.env.REACT_APP_PORT || 4000;
 

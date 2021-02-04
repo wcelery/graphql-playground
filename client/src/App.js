@@ -1,9 +1,10 @@
 import "./App.css";
-import { Button, Typography } from "@material-ui/core";
-import TopBar from "./components/TopBar";
+import { Button } from "@material-ui/core";
 import { gql, useQuery } from "@apollo/client";
+import TopBar from "./components/TopBar";
+import MyCard from "./components/MyCard";
 
-export const TRACKS = gql`
+export const CARDS = gql`
   query Query {
     cardsToShow {
       id
@@ -20,7 +21,7 @@ export const TRACKS = gql`
 `;
 
 function App() {
-  const { loading, error, data } = useQuery(TRACKS);
+  const { loading, error, data } = useQuery(CARDS);
 
   if (loading) return "Loading...";
 
@@ -29,7 +30,9 @@ function App() {
   return (
     <div className="App">
       <TopBar />
-      <Typography>{JSON.stringify(data)}</Typography>
+      {data?.cardsToShow?.map((card) => (
+        <MyCard key={card.id} card={card} />
+      ))}
       <Button variant="contained" color="primary">
         Hello World
       </Button>
