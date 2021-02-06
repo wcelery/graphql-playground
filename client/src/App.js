@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import { gql, useQuery } from "@apollo/client";
 import TopBar from "./components/TopBar";
 import MyCard from "./components/MyCard";
@@ -44,10 +44,6 @@ function App() {
           ))}
         </Grid>
       </CardsResult>
-
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
     </div>
   );
 }
