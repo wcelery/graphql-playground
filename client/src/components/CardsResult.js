@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function QueryResult({ loading, error, data, children }) {
+export default function CardsResult({ loading, error, data, children }) {
   if (error) {
     return <p>ERROR: {error.message}</p>;
   }
